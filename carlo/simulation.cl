@@ -78,17 +78,17 @@ __kernel void simulation(
     double a2 = 0.0;
 
     for(unsigned i = 0; i < num_loans; i += 2) {
-	    // The actual Monte Carlo simulation
+	// The actual Monte Carlo simulation
         float2 n = box_muller(s);
 
         loan_t l1 = loans[i];
         loan_t l2 = loans[i + 1];
 
-	    float v1 = l1.alpha * risk[l1.region] + l1.gamma * n.x;
-	    a1 += select(0.0f, l1.ead * l1.lgd, v1 < l1.treshold);
+	float v1 = l1.alpha * risk[l1.region] + l1.gamma * n.x;
+	a1 += select(0.0f, l1.ead * l1.lgd, v1 < l1.treshold);
 
         float v2 = l2.alpha * risk[l2.region] + l2.gamma * n.y;
-	    a2 += select(0.0f, l2.ead * l2.lgd, v2 < l2.treshold);
+	a2 += select(0.0f, l2.ead * l2.lgd, v2 < l2.treshold);
     }
 
     losses[id] = a1 + a2;
