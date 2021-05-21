@@ -1,9 +1,6 @@
 # Monte Carlo simulation for Credit Risk
 High-performance Monte Carlo implementation to estimate credit risk. This is my attempt at the task presented by Deloitte in the course "Case Studies From Practice" in SS20.
 
-### Resulting distribution histogram over 100k iterations
-![](/carlo/out/histogram.png?raw=true "Resulting distribution histogram")
-
 ### Challenge
 
 The aim of this case study was to simulate one year default losses for a portfolio containing loans from different regions (CH, US and EU), with different credit ratings and exposures and to calculate loss risk measures. 
@@ -21,3 +18,6 @@ Over 100k scenarios (iterations):
 
 * The systematic risk factors are modeled as a multivariate normal distribution with a given correlation matrix
 * The idiosyncratic risk factor realization is modeled as standard normal distribution
+
+### Resulting distribution histogram over 100k iterations
+![](/carlo/out/histogram.png?raw=true "Resulting distribution histogram")
