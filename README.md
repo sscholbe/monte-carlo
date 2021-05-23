@@ -26,9 +26,9 @@ Over 100k scenarios (iterations):
 
 ### How to make it run fast
 
-The simulation is written in OpenCL for CPUs and GPUs. This language allows you to get the most out of your processor by paralellizing your computations nicely over many processing elements (PEs).
+The simulation is written in OpenCL for CPUs and GPUs. This framework allows you to get the most out of your processor by letting you parallelize your computations nicely over many processing elements (PEs).
 
-A Monte Carlo simulation is just repeating the same experiment over and over with almost no dependence between the iterations (except in this case a loss aggregation). This allows for heavy parallelization, which can be nicely done in OpenCL, where we can split up the iteration per PE. The scheduling is then done by the software and hardware.
+A Monte Carlo simulation is just repeating the same experiment over and over with almost no dependence between the iterations (except in this case a loss aggregation). This allows for heavy parallelization, which can be nicely done in OpenCL, where we can split up the iterations. The scheduling is then done by the software and hardware.
 
 ### How to make it run very fast
 
