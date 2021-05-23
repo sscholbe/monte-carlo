@@ -41,7 +41,7 @@ This is a table of the roughly the runtime every implementation has (should give
 |Naive Python|20 min|
 |Naive Java|2 min|
 |Parallel Java|30 s|
-|C++|23 s|
+|C++|20 s|
 |OpenCL (Intel HD Graphics 620)|800 ms|
 |OpenCL (GTX 1060)|160 ms|
 |OpenCL (RTX 2080)|60 ms|
