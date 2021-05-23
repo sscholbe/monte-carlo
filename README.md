@@ -14,7 +14,7 @@ Over 100k scenarios (iterations):
 The systematic risk factors are modeled as multivariate Gaussian random variables with a given correlation matrix.
 The idiosyncratic risk factor is modeled as a standard univariate Gaussian random variable.
 ## Resulting distribution histogram
-
+![](/carlo/out/histogram.png)
 ## Performance
 ### How to make it run fast
 I wrote this simulation in OpenCL for CPUs and GPUs. This framework allows you to get the most out of your processor by letting you parallelize your computations  over many cores and processing elements (PEs).
