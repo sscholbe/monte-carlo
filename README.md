@@ -36,7 +36,7 @@ A difficulty in implementing a Monte Carlo simulations in OpenCL is that OpenCL 
 
 Since we need to generate standard normally distributed samples, but _xoroshiro_ only generates uniformly distributed samples, I'm using the [Box-Muller-transform](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform) to create two standard normally distributed samples out of two uniformly distributed samples.
 
-For the generation of multivariate normally distributed samples, I'm computing the lower triangular matrix of the Cholesky decomposition of the covariance matrix once at startup. Multiplied with a standard normally distributed sample (generated using the previous methods), this produces a multivariate normally distributed sample with the given covariance. I compute the lower triangular matrix using the [Cholesky-Banachiewicz algorithm]( https://en.wikipedia.org/wiki/Cholesky_decomposition#The_Cholesky%E2%80%93Banachiewicz_and_Cholesky%E2%80%93Crout_algorithms).
+For the generation of multivariate normally distributed samples, I'm computing the lower triangular matrix of the Cholesky decomposition of the covariance matrix once at startup in the application. Multiplied with a standard normally distributed sample (generated using the previous methods) on the PE, this produces a multivariate normally distributed sample with the given covariance. I compute the lower triangular matrix using the [Cholesky-Banachiewicz algorithm]( https://en.wikipedia.org/wiki/Cholesky_decomposition#The_Cholesky%E2%80%93Banachiewicz_and_Cholesky%E2%80%93Crout_algorithms).
 
 ### How to make it run absurdly fast
 
