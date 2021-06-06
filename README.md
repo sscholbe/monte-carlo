@@ -16,6 +16,20 @@ The idiosyncratic risk factor is modeled as a standard univariate Gaussian rando
 ## Resulting distribution histogram
 ![](/carlo/out/histogram.png)
 ## Performance
+### Benchmark
+This is a table of the roughly the runtime every implementation has (should give you an overview); the last three just show how nicely an OpenCL implementation becomes faster with faster hardware as the framework is independent of the actual hardware.
+
+
+|Programming language|Runtime|
+|--------------------|-------|
+|Naive Python|20 min|
+|Naive Java|2 min|
+|Parallel Java|30 s|
+|C++|20 s|
+|OpenCL (Intel HD Graphics 620)|800 ms|
+|OpenCL (GTX 1060)|160 ms|
+|OpenCL (RTX 2080)|60 ms|
+
 ### How to make it run fast
 I wrote this simulation in OpenCL for CPUs and GPUs. This framework allows you to get the most out of your processor by letting you parallelize your computations  over many cores and processing elements (PEs).
 
@@ -32,19 +46,6 @@ One kernel is responsible for one iteration of the simulation. There is enough w
 Since we need one MVN sample per scenario (100k) and one UVN sample per loan (36k) per scenario (= 3.6bn UVN samples), the hottest part of the simulation is generating the UVN idiosyncratic risk factor realization to then determine the default and losses. This is done using Box-Muller, but the loop (over the 36k loans) is unrolled twice because Box-Muller outputs two samples. Two accumulators for the aggregated losses are used to reduce the loop dependency.
 
 I enable the OpenCL Fast Relaxed Math optimization flag because all generated numbers should be sane. Also, I compile the kernel at runtime to make sure the compiler can get the most out of its hardware.
-### Benchmark
-This is a table of the roughly the runtime every implementation has (should give you an overview); the last three just show how nicely an OpenCL implementation becomes faster with faster hardware as the framework is independent of the actual hardware.
-
-
-|Programming language|Runtime|
-|--------------------|-------|
-|Naive Python|20 min|
-|Naive Java|2 min|
-|Parallel Java|30 s|
-|C++|20 s|
-|OpenCL (Intel HD Graphics 620)|800 ms|
-|OpenCL (GTX 1060)|160 ms|
-|OpenCL (RTX 2080)|60 ms|
 
 
 
