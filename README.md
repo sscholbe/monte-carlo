@@ -26,9 +26,9 @@ This is a table of the roughly the runtime every implementation has (should give
 |Naive Java|2 min|
 |Parallel Java|30 s|
 |C++|20 s|
-|OpenCL (Intel HD Graphics 620)|800 ms|
-|OpenCL (GTX 1060)|160 ms|
-|OpenCL (RTX 2080)|60 ms|
+|**OpenCL (Intel HD Graphics 620)**|**800 ms**|
+|**OpenCL (GTX 1060)**|**160 ms**|
+|**OpenCL (RTX 2080)**|**60 ms**|
 
 ### How to make it run fast
 I wrote this simulation in OpenCL for CPUs and GPUs. This framework allows you to get the most out of your processor by letting you parallelize your computations  over many cores and processing elements (PEs).
